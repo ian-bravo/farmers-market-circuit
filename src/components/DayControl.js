@@ -62,12 +62,14 @@ class DayControl extends React.Component {
 
     // const stateDay = this.state.day;
     const dayInfo = marketSchedule.filter(element => element.day === this.state.day);
+
     console.log(dayInfo);
+
     const currentDayLocation = <Location 
-      day={dayInfo.day} 
-      location={dayInfo.location}
-      hours={dayInfo.hours}
-      booth={dayInfo.booth} 
+      day={dayInfo[0].day} 
+      location={dayInfo[0].location}
+      hours={dayInfo[0].hours}
+      booth={dayInfo[0].booth} 
       />;
 
     return (
