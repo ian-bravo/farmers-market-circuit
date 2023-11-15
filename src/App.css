@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.day-control {
+  background-color: salmon;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.day-buttons {
+  display: flex;
+  flex-direction: column;
+  /* float: left; */
+  justify-content: flex-start;
+}
+
+.location-info {
+  margin-left: 25%;
+}
