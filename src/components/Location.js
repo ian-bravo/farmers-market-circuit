@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 function Location(props) {
   return (
     <React.Fragment>
-      <h3>{props.day}</h3>
-      <p>{props.location}</p>
-      <p>{props.hours}</p>
-      <p>{props.booth}</p>
+      <h3>Day: {props.day}</h3>
+      <p>Location: {props.location}</p>
+      <p>Hours: {props.hours}</p>
+      <p>Booth: {props.booth}</p>
     </React.Fragment>
   );
 }

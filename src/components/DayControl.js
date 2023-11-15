@@ -33,6 +33,9 @@ const marketSchedule = [
     booth: "6D"
 },
 {
+    day:"Friday"
+},
+{
     day: "Saturday",
     location: "Beaverton",
     hours: "10:00am - 1:30pm",
@@ -55,7 +58,7 @@ class DayControl extends React.Component {
       day: clickedDay
     }));
 
-    console.log(this.state.day);
+    // console.log(this.state.day);
   }
 
   render() {
@@ -63,24 +66,40 @@ class DayControl extends React.Component {
     // const stateDay = this.state.day;
     const dayInfo = marketSchedule.filter(element => element.day === this.state.day);
 
-    console.log(dayInfo);
-
-    const currentDayLocation = <Location 
+    let currentDayLocation = null;
+    
+    if (dayInfo[0].day === "Friday") {
+      currentDayLocation = <h3>Closed</h3>; 
+    } else {
+      currentDayLocation = <Location 
       day={dayInfo[0].day} 
       location={dayInfo[0].location}
       hours={dayInfo[0].hours}
       booth={dayInfo[0].booth} 
       />;
+    }
+
+
+    // const currentDayLocation = <Location 
+    //   day={dayInfo[0].day} 
+    //   location={dayInfo[0].location}
+    //   hours={dayInfo[0].hours}
+    //   booth={dayInfo[0].booth} 
+    //   />;
 
     return (
       <React.Fragment>
-        {currentDayLocation}
-
-        {marketSchedule.map((obj, index) =>
-        <button id={obj.day} key={index} onClick={this.handleClick}>{obj.day}</button>
-        
-        )}
-
+        <div className="day-control">
+          <div className="day-buttons">
+            {marketSchedule.map((obj, index) =>
+            <button id={obj.day} key={index} onClick={this.handleClick}>{obj.day}</button>
+            )}
+          </div>
+          
+          <div className="location-info">
+            {currentDayLocation}
+          </div>
+        </div>
       </React.Fragment>
     );
   }
